@@ -22,15 +22,22 @@ func main() {
 	}
 
 	// Run them all
-	fetchBlock(
-		client,
-		"235f9a217b826276d6cdfbb05c11572a06aef092535b6df8c682d501af59c230",
-		65017558,
-	)
+	// fetchBlock(
+	// 	client,
+	// 	"f3417447ae82a8e0b22fbbc06f720bee844a5e4f8839b0daf303bdc9fcdeab8c",
+	// 	2127764,
+	// )
+	// followTip(
+	// 	client,
+	// 	"6d6ed8490f568af3170eded8f0d55c363020a1e374668879e94ae8f782b485f7",
+	// 	375460,
+	// )
+
+	// mainnet
 	followTip(
 		client,
-		"235f9a217b826276d6cdfbb05c11572a06aef092535b6df8c682d501af59c230",
-		65017558,
+		"c287feed566fb59b7959cd4f6dcefce46d184edb1495ced707465ee29890116d",
+		15998,
 	)
 }
 
@@ -67,20 +74,21 @@ func followTip(
 
 	for stream.Receive() {
 		resp := stream.Msg()
-		action := resp.GetAction()
-		switch a := action.(type) {
-		case *sync.FollowTipResponse_Apply:
-			fmt.Println("Action: Apply")
-			printAnyChainBlock(a.Apply)
-		case *sync.FollowTipResponse_Undo:
-			fmt.Println("Action: Undo")
-			printAnyChainBlock(a.Undo)
-		case *sync.FollowTipResponse_Reset_:
-			fmt.Println("Action: Reset")
-			printBlockRef(a.Reset_)
-		default:
-			fmt.Println("Unknown action type")
-		}
+		// action := resp.GetAction()
+		fmt.Println(resp.GetReset_().Index)
+		// switch a := action.(type) {
+		// case *sync.FollowTipResponse_Apply:
+		// 	fmt.Println("Action: Apply")
+		// 	printAnyChainBlock(a.Apply)
+		// case *sync.FollowTipResponse_Undo:
+		// 	fmt.Println("Action: Undo")
+		// 	printAnyChainBlock(a.Undo)
+		// case *sync.FollowTipResponse_Reset_:
+		// 	fmt.Println("Action: Reset")
+		// 	printBlockRef(a.Reset_)
+		// default:
+		// 	fmt.Println("Unknown action type")
+		// }
 	}
 
 	if err := stream.Err(); err != nil {

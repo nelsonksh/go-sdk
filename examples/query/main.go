@@ -27,34 +27,34 @@ func main() {
 
 	// Run them all
 	readParams(client)
-	readUtxo(
-		client,
-		"24efe5f12d1d93bb419cfb84338d6602dfe78c614b489edb72df0594a077431c",
-		0,
-	)
+	// readUtxo(
+	// 	client,
+	// 	"effb69263484478035625d4bf31babf8c02b382290ff64ad4c0d658fb2c70e38",
+	// 	1,
+	// )
 	// https://preprod.cexplorer.io/asset/asset1tvkt35str8aeepuflxmnjzcdj87em8xrlx4ehz
 	// Use policy ID and asset name in hex format (https://cips.cardano.org/cip/CIP-68/)
 	// Hunt
-	searchUtxos(
-		client,
-		"addr_test1qptfy9zhaeuqfptcu79q6gm9l3r6cfp5gnlqc7m42qwln0lsvex239qmryg4yh3pda3rh3rnce4wd46gdyqlscrq7s4shekqrt",
-		"63f9a5fc96d4f87026e97af4569975016b50eef092a46859b61898e5",
-		"0014df1048554e54",
-	)
-	// Dedi
-	searchUtxos(
-		client,
-		"addr_test1qptfy9zhaeuqfptcu79q6gm9l3r6cfp5gnlqc7m42qwln0lsvex239qmryg4yh3pda3rh3rnce4wd46gdyqlscrq7s4shekqrt",
-		"63f9a5fc96d4f87026e97af4569975016b50eef092a46859b61898e5",
-		"0014df1044454449",
-	)
-	// No assets
-	searchUtxos(
-		client,
-		"addr_test1qzrkvcfvd7k5jx54xxkz87p8xn88304jd2g4jsa0hwwmg20k3c7k36lsg8rdupz6e36j5ctzs6lzjymc9vw7djrmgdnqff9z6j",
-		"63f9a5fc96d4f87026e97af4569975016b50eef092a46859b61898e5",
-		"0014df1044454449",
-	)
+	// searchUtxos(
+	// 	client,
+	// 	"addr_test1qptfy9zhaeuqfptcu79q6gm9l3r6cfp5gnlqc7m42qwln0lsvex239qmryg4yh3pda3rh3rnce4wd46gdyqlscrq7s4shekqrt",
+	// 	"63f9a5fc96d4f87026e97af4569975016b50eef092a46859b61898e5",
+	// 	"0014df1048554e54",
+	// )
+	// // Dedi
+	// searchUtxos(
+	// 	client,
+	// 	"addr_test1qptfy9zhaeuqfptcu79q6gm9l3r6cfp5gnlqc7m42qwln0lsvex239qmryg4yh3pda3rh3rnce4wd46gdyqlscrq7s4shekqrt",
+	// 	"63f9a5fc96d4f87026e97af4569975016b50eef092a46859b61898e5",
+	// 	"0014df1044454449",
+	// )
+	// // No assets
+	// searchUtxos(
+	// 	client,
+	// 	"addr_test1qzrkvcfvd7k5jx54xxkz87p8xn88304jd2g4jsa0hwwmg20k3c7k36lsg8rdupz6e36j5ctzs6lzjymc9vw7djrmgdnqff9z6j",
+	// 	"63f9a5fc96d4f87026e97af4569975016b50eef092a46859b61898e5",
+	// 	"0014df1044454449",
+	// )
 }
 
 func readParams(client *utxorpc.UtxorpcClient) {

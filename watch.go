@@ -23,7 +23,7 @@ func (u *UtxorpcClient) NewWatchServiceClient() WatchServiceClient {
 	)
 }
 
-func watchIntersect(blockHashStr string, blockIndex int64) []*watch.BlockRef {
+func WatchIntersect(blockHashStr string, blockIndex int64) []*watch.BlockRef {
 	var intersect []*watch.BlockRef
 	// Construct the BlockRef based on the provided parameters
 	blockRef := &watch.BlockRef{}
@@ -51,7 +51,7 @@ func (u *UtxorpcClient) WatchTx(
 	blockIndex int64,
 ) (*connect.ServerStreamForClient[watch.WatchTxResponse], error) {
 	ctx := context.Background()
-	req := &watch.WatchTxRequest{Intersect: watchIntersect(blockHashStr, blockIndex)}
+	req := &watch.WatchTxRequest{Intersect: WatchIntersect(blockHashStr, blockIndex)}
 	return u.WatchTxWithContext(ctx, req)
 }
 
